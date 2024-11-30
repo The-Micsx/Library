@@ -1,0 +1,57 @@
+﻿<Window x:Class="Library.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="Main" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"></RowDefinition>
+            <RowDefinition Height="81*"></RowDefinition>
+            <RowDefinition Height="288*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnShowPopup" Click="btnShowPopup_Click" Grid.Column="2" VerticalAlignment="Top" HorizontalContentAlignment="Right" Margin="105,0,0,0" Height="47">
+            <Grid Height="43" Width="154">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="27*"></ColumnDefinition>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Source="C:\Users\themi\source\repos\Library\Resurs\180-1806634_this-free-clip-arts-design-of-male-body-silhouette-hand.png"></Image>
+                <TextBlock x:Name="TextAkaunt" VerticalAlignment="Center" Grid.Column="1" Text="Войти в аккаунт" Height="21"></TextBlock>
+                <Popup Name="akaunt" PlacementTarget="{Binding ElementName=btnShowPopup}" StaysOpen="False">
+                    <Border BorderBrush="Black" Height="50" Width="160" BorderThickness="1" Background="White">
+                        <ListBox Name="listBoxItems" SelectionChanged="listBoxItems_SelectionChanged">
+                        </ListBox>
+                    </Border>
+                </Popup>
+            </Grid>
+
+        </Button>
+        <Button x:Name="Arenda" Grid.Column="0" Grid.Row="1" Height="75" VerticalAlignment="Center" Click="Arenda_Click" >Аренда книги</Button>
+        <Button x:Name="Pay" Grid.Row="1" Height="75" VerticalAlignment="Center" Grid.Column="2" Click="Pay_Click">Оплата штрафа</Button>
+        <Button x:Name="Requests" Grid.Column="1" Grid.Row="1" Visibility="Collapsed" Click="Reqests_Click">
+            <Popup Name="ListReqests" PlacementTarget="{Binding ElementName=Requests}" StaysOpen="False">
+                <Border  BorderBrush="Black" Height="50" Width="160" BorderThickness="1" Background="White">
+                    <ListBox x:Name="listReqests">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>                    
+                </Border>
+            </Popup>
+        </Button>
+
+
+    </Grid>
+</Window>
+    

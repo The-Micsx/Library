@@ -1,0 +1,38 @@
+﻿<Window x:Class="Library.ArendaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library"
+        mc:Ignorable="d"
+        Title="ArendaWindow" Height="441" Width="384">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="BookListItem" Grid.Column="0" Margin="114,0,114,290" Grid.ColumnSpan="2" SelectionChanged="BookListItem_SelectionChanged" Height="61" VerticalAlignment="Bottom">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Margin="123,0,123,199" Grid.ColumnSpan="2" Height="51" VerticalAlignment="Bottom">
+            <TextBlock Text="Дата получения" Height="20"/>
+            <TextBox x:Name="LoanDate" Height="25"/>
+        </StackPanel>
+        <StackPanel Margin="123,0,123,126" Grid.ColumnSpan="2" Height="47" VerticalAlignment="Bottom">
+            <TextBlock Text="Дата возрата"/>
+            <TextBox x:Name="DueDate" Height="25"/>
+        </StackPanel>
+
+        <Button Grid.Column="1" Content="Арендовать" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="52" Width="116" Click="Button_Click"/>
+
+    </Grid>
+</Window>
